@@ -10,6 +10,7 @@ import {
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 import ButtonField from "../components/molecules/ButtonField";
+import AppText from "../components/atoms/AppText";
 
 const SignIn = () => {
   const [isChecked, setChecked] = useState(false);
@@ -50,8 +51,10 @@ const SignIn = () => {
           <Text>Forget password?</Text>
         </View>
         <View>
-          <ButtonField />
+          <ButtonField children={<AppText>Sign In Now</AppText>} />
         </View>
+        <Text style={styles.text}>Or with</Text>
+        <ButtonField />
       </KeyboardAvoidView>
     </View>
   );
@@ -76,7 +79,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginRight: 94,
   },
-  forget: {},
+  text: {
+    fontWeight: "600",
+    textAlign: "center",
+    fontSize: 12,
+    marginVertical: 49,
+  },
 });
 
 export default SignIn;
