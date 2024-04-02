@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     width: wp(89.8),
     height: hp(5.1),
+    justifyContent: "center",
     alignItems: "center",
   },
   outline: {

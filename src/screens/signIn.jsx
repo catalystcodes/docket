@@ -11,6 +11,8 @@ import {
 } from "react-native-responsive-screen";
 import ButtonField from "../components/molecules/ButtonField";
 import AppText from "../components/atoms/AppText";
+import Facebook from "../components/atoms/icons/Facebook";
+import Google from "../components/atoms/icons/google";
 
 const SignIn = () => {
   const [isChecked, setChecked] = useState(false);
@@ -58,10 +60,12 @@ const SignIn = () => {
         <Text style={styles.text}>Or with</Text>
 
         <ButtonField textColor={"#fff"}>
+          <Facebook />
           <AppText>Login with Facebook</AppText>
         </ButtonField>
 
         <ButtonField type="outline" textColor={"black"}>
+          <Google />
           <AppText>Login with Google</AppText>
         </ButtonField>
         <View style={styles.signUpArea}>
@@ -98,6 +102,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 12,
     marginVertical: 49,
+  },
+  signUpArea: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: hp(23.1),
   },
 });
 
