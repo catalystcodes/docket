@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Checkbox from "expo-checkbox";
 
-import { View, StyleSheet, Text, TextInput } from "react-native";
+import { View, StyleSheet, Text, TextInput, Image } from "react-native";
 import SignInNav from "../components/molecules/signInNav";
 import KeyboardAvoidView from "../components/atoms/KeyboardAvoidView";
 import InputField from "../components/molecules/InputField";
@@ -54,7 +54,13 @@ const SignIn = () => {
           <ButtonField children={<AppText>Sign In Now</AppText>} />
         </View>
         <Text style={styles.text}>Or with</Text>
-        <ButtonField />
+        <ButtonField
+          children={
+            // <Image source={require('')}/>
+            <AppText>Login with Facebook</AppText>
+          }
+        />
+        <ButtonField mode={"outlined"} />
       </KeyboardAvoidView>
     </View>
   );
