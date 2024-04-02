@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, Pressable } from "react-native";
 import SignUpNav from "../components/molecules/signUpNav";
 import InputField from "../components/molecules/InputField";
 import {
@@ -12,8 +12,10 @@ import Google from "../components/atoms/icons/google";
 import KeyboardAvoidView from "../components/atoms/KeyboardAvoidView";
 import ButtonField from "../components/molecules/ButtonField";
 import AppText from "../components/atoms/AppText";
+import { useNavigation } from "@react-navigation/native";
 
 const SignUp = () => {
+  const navigation = useNavigation();
   return (
     <View
       style={{
@@ -59,6 +61,12 @@ const SignUp = () => {
             <Google />
             <AppText>Sign Up with Google</AppText>
           </ButtonField>
+          <View style={styles.signUpArea}>
+            <Text>Already Have an account? </Text>
+            <Pressable onPress={() => navigation.navigate("signin")}>
+              <Text style={{ color: "#0560FD" }}>Signin</Text>
+            </Pressable>
+          </View>
         </View>
       </KeyboardAvoidView>
     </View>
@@ -71,6 +79,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 12,
     marginVertical: 49,
+  },
+  signUpArea: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: hp(13.3),
   },
 });
 

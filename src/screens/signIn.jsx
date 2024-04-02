@@ -82,7 +82,7 @@ const SignIn = () => {
         <View style={styles.signUpArea}>
           <Text>I don’t Have an account? </Text>
           <Pressable onPress={() => navigation.navigate("signup")}>
-            <Text>Signup</Text>
+            <Text style={{ color: "#0560FD" }}>Signup</Text>
           </Pressable>
         </View>
       </KeyboardAvoidView>
