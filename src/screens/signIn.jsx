@@ -20,11 +20,11 @@ import ButtonField from "../components/molecules/ButtonField";
 import AppText from "../components/atoms/AppText";
 import Facebook from "../components/atoms/icons/Facebook";
 import Google from "../components/atoms/icons/google";
-import { createStackNavigator } from "@react-navigation/stack";
+import { useNavigation } from "@react-navigation/native";
 
-const SignIn = ({ navigation }) => {
+const SignIn = () => {
   const [isChecked, setChecked] = useState(false);
-  const Navigation = createStackNavigator;
+  const navigation = useNavigation();
   return (
     <View
       style={{

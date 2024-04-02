@@ -1,30 +1,77 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
-import SignUpNav from "../components/molecules/signInNav";
+import SignUpNav from "../components/molecules/signUpNav";
 import InputField from "../components/molecules/InputField";
-import { heightPercentageToDP as hp } from "react-native-responsive-screen";
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from "react-native-responsive-screen";
+import Facebook from "../components/atoms/icons/Facebook";
+import Google from "../components/atoms/icons/google";
+
+import KeyboardAvoidView from "../components/atoms/KeyboardAvoidView";
+import ButtonField from "../components/molecules/ButtonField";
+import AppText from "../components/atoms/AppText";
 
 const SignUp = () => {
   return (
-    <View>
-      <SignUpNav />
-      <View style={{ rowGap: hp(1.4) }}>
-        <InputField
-          label="E-mail"
-          placeholder="Enter your email"
-          type="email-address"
-        />
-        <InputField
-          label="Password"
-          placeholder="Password"
-          secureTextEntry
-          type="password"
-        />
-      </View>
+    <View
+      style={{
+        flexGrow: 1,
+        backgroundColor: "#fff",
+        paddingHorizontal: wp(5.08),
+      }}
+    >
+      <KeyboardAvoidView>
+        <SignUpNav />
+        <View style={{ rowGap: hp(1.4) }}>
+          <InputField
+            label="E-mail"
+            placeholder="Enter your email"
+            type="email-address"
+          />
+          <InputField
+            label="Password"
+            placeholder="Password"
+            secureTextEntry
+            type="password"
+          />
+
+          <InputField
+            label="Retype-Password"
+            placeholder="Ensure password"
+            secureTextEntry
+            type="password"
+          />
+
+          <ButtonField textColor={"#fff"}>
+            <AppText>Sign Up Now</AppText>
+          </ButtonField>
+
+          <Text style={styles.text}>Or with</Text>
+
+          <ButtonField textColor={"#fff"}>
+            <Facebook />
+            <AppText>Sign Up with Facebook</AppText>
+          </ButtonField>
+
+          <ButtonField type="outline" textColor={"black"}>
+            <Google />
+            <AppText>Sign Up with Google</AppText>
+          </ButtonField>
+        </View>
+      </KeyboardAvoidView>
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  text: {
+    fontWeight: "600",
+    textAlign: "center",
+    fontSize: 12,
+    marginVertical: 49,
+  },
+});
 
 export default SignUp;
