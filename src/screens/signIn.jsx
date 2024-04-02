@@ -48,19 +48,26 @@ const SignIn = () => {
             />
             <Text style={styles.forget}>Remember Password</Text>
           </View>
-          <Text>Forget password?</Text>
+          <Text style={{ color: "#0560FD" }}>Forget password?</Text>
         </View>
         <View>
-          <ButtonField children={<AppText>Sign In Now</AppText>} />
+          <ButtonField textColor={"#fff"}>
+            <AppText>Sign In Now</AppText>
+          </ButtonField>
         </View>
         <Text style={styles.text}>Or with</Text>
-        <ButtonField
-          children={
-            // <Image source={require('')}/>
-            <AppText>Login with Facebook</AppText>
-          }
-        />
-        <ButtonField mode={"outlined"} />
+
+        <ButtonField textColor={"#fff"}>
+          <AppText>Login with Facebook</AppText>
+        </ButtonField>
+
+        <ButtonField type="outline" textColor={"black"}>
+          <AppText>Login with Google</AppText>
+        </ButtonField>
+        <View style={styles.signUpArea}>
+          <Text>I don’t Have an account?</Text>
+          <Text>Signup</Text>
+        </View>
       </KeyboardAvoidView>
     </View>
   );
@@ -75,6 +82,7 @@ const styles = StyleSheet.create({
     height: 16,
     marginRight: 7.5,
   },
+
   checkView: {
     flexDirection: "row",
     alignItems: "center",

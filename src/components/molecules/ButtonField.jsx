@@ -7,14 +7,15 @@ import {
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 
-const ButtonField = ({ children }) => {
+const ButtonField = ({ children, type = "primary", textColor }) => {
   return (
     <View>
       <Button
+        textColor={textColor}
         icon={children}
-        mode="contained"
+        mode={type}
         onPress={() => console.log("Pressed")}
-        style={styles.Button}
+        style={[styles.Button, type === "outline" && styles.outline]}
       >
         {children}
       </Button>
@@ -29,6 +30,13 @@ const styles = StyleSheet.create({
     width: wp(89.8),
     height: hp(5.1),
     alignItems: "center",
+  },
+  outline: {
+    backgroundColor: "#fff",
+    borderColor: "#0560FD",
+    borderWidth: 1,
+    borderRadius: 5,
+    marginTop: 10,
   },
 });
 
