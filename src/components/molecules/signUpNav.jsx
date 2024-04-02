@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Pressable } from "react-native";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -8,7 +8,9 @@ import {
 const SignUpNav = () => {
   return (
     <View style={styles.nav}>
-      <Image source={require("../../assets/images/arrowLeft.png")} />
+      <Pressable onPress={() => navigation.navigate("signin")}>
+        <Image source={require("../../assets/images/arrowLeft.png")} />
+      </Pressable>
       <Text style={styles.text}>Sign up</Text>
     </View>
   );

@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import Checkbox from "expo-checkbox";
 
-import { View, StyleSheet, Text, TextInput, Image } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  TextInput,
+  Image,
+  Pressable,
+} from "react-native";
 import SignInNav from "../components/molecules/signInNav";
 import KeyboardAvoidView from "../components/atoms/KeyboardAvoidView";
 import InputField from "../components/molecules/InputField";
@@ -13,9 +20,11 @@ import ButtonField from "../components/molecules/ButtonField";
 import AppText from "../components/atoms/AppText";
 import Facebook from "../components/atoms/icons/Facebook";
 import Google from "../components/atoms/icons/google";
+import { createStackNavigator } from "@react-navigation/stack";
 
-const SignIn = () => {
+const SignIn = ({ navigation }) => {
   const [isChecked, setChecked] = useState(false);
+  const Navigation = createStackNavigator;
   return (
     <View
       style={{
@@ -25,7 +34,7 @@ const SignIn = () => {
       }}
     >
       <KeyboardAvoidView>
-        <SignInNav style={styles.header} />
+        <SignInNav />
         <View style={{ rowGap: hp(1.4) }}>
           <InputField
             label="E-mail"
@@ -52,25 +61,29 @@ const SignIn = () => {
           </View>
           <Text style={{ color: "#0560FD" }}>Forget password?</Text>
         </View>
-        <View>
-          <ButtonField textColor={"#fff"}>
-            <AppText>Sign In Now</AppText>
-          </ButtonField>
-        </View>
-        <Text style={styles.text}>Or with</Text>
-
         <ButtonField textColor={"#fff"}>
-          <Facebook />
-          <AppText>Login with Facebook</AppText>
+          <AppText>Sign In Now</AppText>
         </ButtonField>
 
+        <Text style={styles.text}>Or with</Text>
+
+        <View style={{ alignItems: "center", justifyContent: "center" }}>
+          <ButtonField textColor={"#fff"}>
+            <Facebook />
+            <AppText>Login with Facebook</AppText>
+          </ButtonField>
+        </View>
+
+        <View></View>
         <ButtonField type="outline" textColor={"black"}>
           <Google />
           <AppText>Login with Google</AppText>
         </ButtonField>
         <View style={styles.signUpArea}>
-          <Text>I don’t Have an account?</Text>
-          <Text>Signup</Text>
+          <Text>I don’t Have an account? </Text>
+          <Pressable onPress={() => navigation.navigate("signup")}>
+            <Text>Signup</Text>
+          </Pressable>
         </View>
       </KeyboardAvoidView>
     </View>
@@ -78,9 +91,6 @@ const SignIn = () => {
 };
 
 const styles = StyleSheet.create({
-  header: {
-    marginBottom: 100,
-  },
   checkbox: {
     width: 16,
     height: 16,

@@ -6,6 +6,7 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { PaperProvider } from "react-native-paper";
 import { NavigationContainer } from "@react-navigation/native";
 import AppRoutes from "./src/AppRoutes";
+import SignUp from "./src/screens/signUp";
 
 export default function App() {
   return (
@@ -21,9 +22,4 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 20,
-    flexGrow: 1,
-  },
-});
+const styles = StyleSheet.create({});

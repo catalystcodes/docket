@@ -9,7 +9,7 @@ const SignInNav = () => {
   return (
     <View style={[styles.nav]}>
       <Image source={require("../../assets/images/arrowLeft.png")} />
-      <Text style={styles.text}>Sign In</Text>
+      <Text style={styles.text}>Sign Up</Text>
     </View>
   );
 };
