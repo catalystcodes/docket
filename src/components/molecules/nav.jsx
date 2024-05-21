@@ -4,19 +4,20 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
-import { createStackNavigator } from "@react-navigation/stack";
 
-const SignInNav = () => {
+const Nav = ({ text }) => {
   return (
-    <View style={[styles.nav]}>
-      <Image source={require("../../assets/images/arrowLeft.png")} />
-      <Text style={styles.text}>Sign Up</Text>
+    <View>
+      <View style={styles.navHeader}>
+        <Image source={require("../../assets/images/arrowLeft.png")} />
+        <Text style={styles.text}>{text}</Text>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  nav: {
+  navHeader: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -30,4 +31,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignInNav;
+export default Nav;

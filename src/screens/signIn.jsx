@@ -9,7 +9,6 @@ import {
   Image,
   Pressable,
 } from "react-native";
-import SignInNav from "../components/molecules/signInNav";
 import KeyboardAvoidView from "../components/atoms/KeyboardAvoidView";
 import InputField from "../components/molecules/InputField";
 import {
@@ -21,6 +20,7 @@ import AppText from "../components/atoms/AppText";
 import Facebook from "../components/atoms/icons/Facebook";
 import Google from "../components/atoms/icons/google";
 import { useNavigation } from "@react-navigation/native";
+import Nav from "../components/molecules/nav";
 
 const SignIn = () => {
   const [isChecked, setChecked] = useState(false);
@@ -34,7 +34,7 @@ const SignIn = () => {
       }}
     >
       <KeyboardAvoidView>
-        <SignInNav />
+        <Nav text="Sign In" />
         <View style={{ rowGap: hp(1.4) }}>
           <InputField
             label="E-mail"

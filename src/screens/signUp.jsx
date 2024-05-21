@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet, Text, Pressable } from "react-native";
-import SignUpNav from "../components/molecules/signUpNav";
+
 import InputField from "../components/molecules/InputField";
 import {
   heightPercentageToDP as hp,
@@ -13,6 +13,7 @@ import KeyboardAvoidView from "../components/atoms/KeyboardAvoidView";
 import ButtonField from "../components/molecules/ButtonField";
 import AppText from "../components/atoms/AppText";
 import { useNavigation } from "@react-navigation/native";
+import Nav from "../components/molecules/nav";
 
 const SignUp = () => {
   const navigation = useNavigation();
@@ -25,7 +26,7 @@ const SignUp = () => {
       }}
     >
       <KeyboardAvoidView>
-        <SignUpNav />
+        <Nav text="Sign Up" />
         <View style={{ rowGap: hp(1.4) }}>
           <InputField
             label="E-mail"
