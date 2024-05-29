@@ -31,7 +31,7 @@ const SignUp = () => {
           <InputField
             label="E-mail"
             placeholder="Enter your email"
-            type="email-address"
+            // type="email-address"
           />
           <InputField
             label="Password"
