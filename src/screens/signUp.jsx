@@ -67,7 +67,7 @@ const SignUp = () => {
           <View style={styles.signUpArea}>
             <Text>Already Have an account? </Text>
             <Pressable onPress={() => navigation.navigate("signin")}>
-              <Text style={{ color: "#0560FD" }}>Signin</Text>
+              <Text style={{ color: "#0560FD" }}>Sixgnin</Text>
             </Pressable>
           </View>
         </View>
