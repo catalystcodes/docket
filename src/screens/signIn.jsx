@@ -61,9 +61,11 @@ const SignIn = () => {
           </View>
           <Text style={{ color: "#0560FD" }}>Forget password?</Text>
         </View>
-        <ButtonField textColor={"#fff"}>
-          <AppText>Sign In Now</AppText>
-        </ButtonField>
+        <Pressable onPress={() => navigation.navigate("todo screens")}>
+          <ButtonField textColor={"#fff"}>
+            <AppText>Sign In Now</AppText>
+          </ButtonField>
+        </Pressable>
 
         <Text style={styles.text}>Or with</Text>
 

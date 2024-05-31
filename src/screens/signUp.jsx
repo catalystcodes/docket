@@ -47,9 +47,11 @@ const SignUp = () => {
             type="password"
           />
 
-          <ButtonField textColor={"#fff"}>
-            <AppText>Sign Up Now</AppText>
-          </ButtonField>
+          <Pressable onPress={() => navigation.navigate("todo screens")}>
+            <ButtonField textColor={"#fff"}>
+              <AppText>Sign Up Now</AppText>
+            </ButtonField>
+          </Pressable>
 
           <Text style={styles.text}>Or with</Text>
 
