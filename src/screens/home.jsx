@@ -10,7 +10,7 @@ const Home = () => {
           <Image source={require("../../src/assets/images/avater.png")} />
           <View style={styles.subDetails}>
             <Text>Hello</Text>
-            <Text>Sarthak</Text>
+            <Text style={styles.avatarName}>Sarthak</Text>
           </View>
         </View>
         <Image
@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    marginBottom: 3,
   },
   subDetails1: {
     flexDirection: "row",
@@ -39,6 +40,10 @@ const styles = StyleSheet.create({
   },
   subDetails: {
     marginLeft: 3,
+  },
+  avatarName: {
+    fontWeight: "600",
+    fontSize: 16,
   },
 });
 
