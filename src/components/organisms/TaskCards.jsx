@@ -6,6 +6,11 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
+import Avatar1 from "../../assets/images/avatar1";
+import Avatar2 from "../../assets/images/avatar2";
+import Avatar3 from "../../assets/images/avatar3";
+import Avatar4 from "../../assets/images/avatar4";
+import MiniPlus from "../../assets/images/miniPlus";
 
 const TaskCards = () => {
   return (
@@ -29,6 +34,18 @@ const TaskCards = () => {
             <Text>20 Jan 2023</Text>
           </View>
         </View>
+        <View style={styles.imagesSector}>
+          <View style={styles.images}>
+            <Avatar1 />
+            <Avatar2 />
+            <Avatar3 />
+            <Avatar4 />
+            <MiniPlus />
+          </View>
+          <View style={styles.text3View}>
+            <Text style={styles.text3}>High</Text>
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -37,8 +54,8 @@ const TaskCards = () => {
 const styles = StyleSheet.create({
   whole: {
     padding: 15,
+    marginBottom: 12,
     borderRadius: 10,
-    // marginRight: 2,
     borderWidth: 1,
     borderColor: "#D4D4D4",
   },
@@ -84,6 +101,29 @@ const styles = StyleSheet.create({
   },
   text2: {
     marginRight: 15,
+  },
+  images: {
+    flexDirection: "row",
+  },
+
+  text3View: {
+    backgroundColor: "#0560fd",
+    borderRadius: 41,
+    paddingTop: 4,
+    paddingBottom: 4,
+    paddingRight: 19,
+    paddingLeft: 19,
+  },
+
+  text3: {
+    fontSize: 12,
+    fontWeight: "400",
+    color: "#fff",
+  },
+  imagesSector: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
 });
 
