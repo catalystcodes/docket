@@ -1,7 +1,9 @@
 import React from "react";
-import { View, StyleSheet, Text, Image } from "react-native";
+import { View, StyleSheet, Text, Image, ScrollView } from "react-native";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import InputField from "../components/molecules/InputField";
+import TaskCards from "../components/organisms/TaskCards";
+import KeyboardAvoidView from "../components/atoms/KeyboardAvoidView";
 
 const Home = () => {
   return (
@@ -19,19 +21,31 @@ const Home = () => {
           style={styles.img}
         />
       </View>
-      <InputField placeholder={"Find your task here...."} />
+      <KeyboardAvoidView>
+        <InputField placeholder={"Find your task here...."} />
+      </KeyboardAvoidView>
+
       <Text style={styles.taskLabel}>Your Task</Text>
       <View style={styles.taskProgress}>
         <View style={styles.taskProgressStyle}>
           <Text style={styles.text}>In Progress</Text>
         </View>
-        <View style={styles.taskProgressStyle}>
-          <Text style={styles.text}>To Do</Text>
+        <View style={styles.taskProgressStyle1}>
+          <Text style={styles.text1}>To Do</Text>
         </View>
-        <View style={styles.taskProgressStyle}>
-          <Text style={styles.text}> Completed</Text>
+        <View style={styles.taskProgressStyle1}>
+          <Text style={styles.text1}> Completed</Text>
         </View>
       </View>
+      <ScrollView>
+        <View style={styles.task}>
+          <TaskCards />
+          <TaskCards />
+          <TaskCards />
+          <TaskCards />
+          <TaskCards />
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -70,6 +84,7 @@ const styles = StyleSheet.create({
   taskProgress: {
     flexDirection: "row",
     justifyContent: "space-between",
+    marginBottom: 15,
   },
 
   taskProgressStyle: {
@@ -81,11 +96,29 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     // marginRight: 2,
   },
+
+  taskProgressStyle1: {
+    paddingTop: 9,
+    paddingBottom: 9,
+    paddingLeft: 19,
+    paddingRight: 19,
+    borderRadius: 10,
+    // marginRight: 2,
+    borderWidth: 1,
+    borderColor: "#D4D4D4",
+  },
+
   text: {
     color: "#fff",
     fontSize: 12,
     fontWeight: "500",
   },
+  text1: {
+    color: "#9A9A9A",
+    fontSize: 12,
+    fontWeight: "500",
+  },
+  tasks: {},
 });
 
 export default Home;

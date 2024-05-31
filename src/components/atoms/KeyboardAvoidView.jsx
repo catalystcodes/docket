@@ -11,7 +11,7 @@ const KeyboardAvoidView = ({ children }) => {
       scrollToOverflowEnabled={false}
       extraScrollHeight={0}
       extraHeight={100}
-      // scrollEnabled={false}
+      scrollEnabled={false}
       enableResetScrollToCoords={false}
     >
       {children}
