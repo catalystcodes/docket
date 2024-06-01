@@ -11,13 +11,19 @@ import Avatar2 from "../../assets/images/avatar2";
 import Avatar3 from "../../assets/images/avatar3";
 import Avatar4 from "../../assets/images/avatar4";
 import MiniPlus from "../../assets/images/miniPlus";
+import Points from "../../assets/images/points";
 
 const TaskCards = ({ text, bg }) => {
   return (
     <View>
       <View style={styles.whole}>
-        <Text style={styles.header}>Design</Text>
-        <Text style={styles.subHeader1}>The Logo Process</Text>
+        <View style={styles.cardHeader}>
+          <View>
+            <Text style={styles.header}>Design</Text>
+            <Text style={styles.subHeader1}>The Logo Process</Text>
+          </View>
+          <Points />
+        </View>
         <Text style={styles.text1}>Progress</Text>
         <View style={styles.gaps}>
           <View style={styles.gap1}></View>
@@ -36,11 +42,21 @@ const TaskCards = ({ text, bg }) => {
         </View>
         <View style={styles.imagesSector}>
           <View style={styles.images}>
-            <Avatar1 />
-            <Avatar2 />
-            <Avatar3 />
-            <Avatar4 />
-            <MiniPlus />
+            <View style={styles.img}>
+              <Avatar1 />
+            </View>
+            <View style={styles.img1}>
+              <Avatar2 />
+            </View>
+            <View style={styles.img1}>
+              <Avatar3 />
+            </View>
+            <View style={styles.img1}>
+              <Avatar4 />
+            </View>
+            <View style={styles.img1}>
+              <MiniPlus />
+            </View>
           </View>
           <View style={[styles.text3View, bg && { backgroundColor: bg }]}>
             <Text style={styles.text3}>{text}</Text>
@@ -58,6 +74,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: "#D4D4D4",
+  },
+
+  cardHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
   header: {
     fontWeight: "500",
@@ -125,6 +147,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
   },
+  img: {
+    position: "absolute",
+  },
+  // img1: {
+  //   position: "absolute",
+  // },
 });
 
 export default TaskCards;

@@ -1,6 +1,6 @@
 import * as React from "react";
 import Svg, { Circle, Defs, Pattern, Use, Image } from "react-native-svg";
-const Avatar1 = (props) => (
+const SvgComponent = (props) => (
   <Svg
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -29,4 +29,4 @@ const Avatar1 = (props) => (
     </Defs>
   </Svg>
 );
-export default Avatar1;
+export default SvgComponent;

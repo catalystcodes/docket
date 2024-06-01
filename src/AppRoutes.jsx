@@ -18,7 +18,6 @@ const AppRoutes = () => {
       <Screen name="signin" component={SignIn} />
       <Screen name="signup" component={SignUp} />
       <Screen name="todo screens" component={BottomTabs} />
-      {/* <Screen name="home" component={Home} /> */}
     </Navigator>
   );
 };
