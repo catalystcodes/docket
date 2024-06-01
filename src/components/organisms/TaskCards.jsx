@@ -12,7 +12,7 @@ import Avatar3 from "../../assets/images/avatar3";
 import Avatar4 from "../../assets/images/avatar4";
 import MiniPlus from "../../assets/images/miniPlus";
 
-const TaskCards = () => {
+const TaskCards = ({ text }) => {
   return (
     <View>
       <View style={styles.whole}>
@@ -43,7 +43,7 @@ const TaskCards = () => {
             <MiniPlus />
           </View>
           <View style={styles.text3View}>
-            <Text style={styles.text3}>High</Text>
+            <Text style={styles.text3}>{text}</Text>
           </View>
         </View>
       </View>

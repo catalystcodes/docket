@@ -46,7 +46,7 @@ const AppBottomTabs = () => {
         component={AddTab}
         options={{
           tabBarIcon: ({ color }) => (
-            <AntDesign name="pluscircle" size={53} color="black" />
+            <AntDesign name="pluscircle" size={53} color="#0560FD" />
           ),
         }}
       />
