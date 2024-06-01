@@ -66,7 +66,11 @@ const AppBottomTabs = () => {
         component={AccountTab}
         options={{
           tabBarIcon: ({ color }) => (
-            <Ionicons name="notifications-outline" size={24} color={color} />
+            <MaterialCommunityIcons
+              name="shield-account-outline"
+              size={24}
+              color="black"
+            />
           ),
         }}
       />
