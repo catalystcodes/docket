@@ -4,6 +4,7 @@ import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import InputField from "../components/molecules/InputField";
 import TaskCards from "../components/organisms/TaskCards";
 import KeyboardAvoidView from "../components/atoms/KeyboardAvoidView";
+import SearchIcon from "../assets/images/searchIcon";
 
 const Home = () => {
   return (
@@ -22,7 +23,7 @@ const Home = () => {
         />
       </View>
       <KeyboardAvoidView>
-        <InputField placeholder={"Find your task here...."} />
+        <InputField placeholder="Find your task here...." showIcon />
       </KeyboardAvoidView>
 
       <Text style={styles.taskLabel}>Your Task</Text>
@@ -61,10 +62,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginBottom: 3,
   },
+
   subDetails1: {
     flexDirection: "row",
     alignItems: "center",
   },
+
   subDetails: {
     marginLeft: 3,
   },
@@ -81,7 +84,6 @@ const styles = StyleSheet.create({
 
   taskProgress: {
     flexDirection: "row",
-    justifyContent: "space-between",
     marginBottom: 15,
   },
 
@@ -92,7 +94,6 @@ const styles = StyleSheet.create({
     paddingRight: 19,
     backgroundColor: "#0560FD",
     borderRadius: 10,
-    // marginRight: 2,
   },
 
   taskProgressStyle1: {
@@ -101,9 +102,9 @@ const styles = StyleSheet.create({
     paddingLeft: 19,
     paddingRight: 19,
     borderRadius: 10,
-    // marginRight: 2,
     borderWidth: 1,
     borderColor: "#D4D4D4",
+    marginLeft: 11,
   },
 
   text: {
@@ -116,7 +117,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "500",
   },
-  tasks: {},
 });
 
 export default Home;
