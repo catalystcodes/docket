@@ -39,9 +39,9 @@ const Home = () => {
       </View>
       <ScrollView>
         <View style={styles.task}>
-          <TaskCards text={"High"} />
-          <TaskCards text={"Medium"} />
-          <TaskCards text={"High"} />
+          <TaskCards text="High" />
+          <TaskCards text="Medium" bg={"#CC00FF"} />
+          <TaskCards text="High" />
         </View>
       </ScrollView>
     </View>
