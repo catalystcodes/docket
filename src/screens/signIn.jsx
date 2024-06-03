@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Checkbox from "expo-checkbox";
 
 import {
@@ -21,10 +21,20 @@ import Facebook from "../components/atoms/icons/Facebook";
 import Google from "../components/atoms/icons/google";
 import { useNavigation } from "@react-navigation/native";
 import Nav from "../components/molecules/nav";
+import { doLogin, getAuthUser } from "../utils/auth.helper";
 
 const SignIn = () => {
   const [isChecked, setChecked] = useState(false);
+  const [form, setForm] = useState({ email: "", password: "" });
   const navigation = useNavigation();
+
+  const handleLogin = async () => {
+    try {
+      await doLogin(form.email);
+      navigation.navigate("todo screens");
+    } catch (error) {}
+  };
+
   return (
     <View
       style={{
@@ -40,12 +50,20 @@ const SignIn = () => {
             label="E-mail"
             placeholder="Enter your email"
             type="email-address"
+            value={form.email}
+            setValue={(text) =>
+              setForm((currentValue) => ({ ...currentValue, email: text }))
+            }
           />
           <InputField
             label="Password"
             placeholder="Password"
             secureTextEntry
             type="password"
+            value={form.password}
+            setValue={(text) =>
+              setForm((currentValue) => ({ ...currentValue, password: text }))
+            }
           />
         </View>
 
@@ -61,15 +79,14 @@ const SignIn = () => {
           </View>
           <Text style={{ color: "#0560FD" }}>Forget password?</Text>
         </View>
-        <Pressable onPress={() => navigation.navigate("todo screens")}>
-          <ButtonField textColor={"#fff"}>
-            <AppText>Sign In Now</AppText>
-          </ButtonField>
-        </Pressable>
+
+        <ButtonField onPress={handleLogin} textColor={"#fff"}>
+          <AppText>Sign In Now</AppText>
+        </ButtonField>
 
         <Text style={styles.text}>Or with</Text>
 
-        <View style={{ alignItems: "center", justifyContent: "center" }}>
+        <View style={{ justifyContent: "center" }}>
           <ButtonField textColor={"#fff"}>
             <Facebook />
             <AppText>Login with Facebook</AppText>

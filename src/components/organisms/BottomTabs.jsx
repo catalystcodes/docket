@@ -27,8 +27,12 @@ const AppBottomTabs = () => {
         name="home"
         component={Home}
         options={{
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home-minus" size={24} color="black" />
+          tabBarIcon: ({ color, focused }) => (
+            <MaterialCommunityIcons
+              name="home-minus"
+              size={24}
+              color={focused ? "#0560FD" : "black"}
+            />
           ),
         }}
       />
@@ -36,8 +40,12 @@ const AppBottomTabs = () => {
         name="calender"
         component={calenderTab}
         options={{
-          tabBarIcon: ({ color }) => (
-            <FontAwesome5 name="calendar-alt" size={24} color="black" />
+          tabBarIcon: ({ color, focused }) => (
+            <FontAwesome5
+              name="calendar-alt"
+              size={24}
+              color={focused ? "#0560FD" : "black"}
+            />
           ),
         }}
       />
@@ -45,8 +53,13 @@ const AppBottomTabs = () => {
         name="add"
         component={AddTab}
         options={{
-          tabBarIcon: ({ color }) => (
-            <AntDesign name="pluscircle" size={53} color="#0560FD" />
+          tabBarIcon: () => (
+            <AntDesign
+              name="pluscircle"
+              size={53}
+              color="#0560FD"
+              style={{ position: "absolute" }}
+            />
           ),
         }}
       />
@@ -55,8 +68,12 @@ const AppBottomTabs = () => {
         name="progress"
         component={progressTab}
         options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="stats-chart-outline" size={24} color="black" />
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name="stats-chart-outline"
+              size={24}
+              color={focused ? "#0560FD" : "black"}
+            />
           ),
         }}
       />
@@ -65,11 +82,11 @@ const AppBottomTabs = () => {
         name="account"
         component={AccountTab}
         options={{
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: ({ color, focused }) => (
             <MaterialCommunityIcons
               name="shield-account-outline"
               size={24}
-              color="black"
+              color={focused ? "#0560FD" : "black"}
             />
           ),
         }}

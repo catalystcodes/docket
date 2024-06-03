@@ -7,19 +7,18 @@ import {
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 
-const ButtonField = ({ children, type = "primary", textColor }) => {
+const ButtonField = ({ children, type = "primary", textColor, onPress }) => {
   return (
-    <View>
-      <Button
-        textColor={textColor}
-        icon={children}
-        mode={type}
-        onPress={() => console.log("Pressed")}
-        style={[styles.Button, type === "outline" && styles.outline]}
-      >
-        {children}
-      </Button>
-    </View>
+    <Button
+      textColor={textColor}
+      icon={children}
+      mode={type}
+      onPress={onPress}
+      style={[styles.Button, type === "outline" && styles.outline]}
+      contentStyle={{ height: hp(5.1), width: "100%" }}
+    >
+      {children}
+    </Button>
   );
 };
 
@@ -27,10 +26,10 @@ const styles = StyleSheet.create({
   Button: {
     backgroundColor: "#0560FD",
     borderRadius: 5,
-    width: wp(89.8),
-    height: hp(5.1),
-    justifyContent: "center",
-    alignItems: "center",
+    // width: wp(89.8),
+    // height: hp(5.1),
+    // justifyContent: "center",
+    // alignItems: "center",
   },
   outline: {
     backgroundColor: "#fff",

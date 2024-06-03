@@ -1,12 +1,33 @@
-import React from "react";
-import { View, StyleSheet, Text, Image, ScrollView } from "react-native";
+import React, { Fragment, useMemo, useState } from "react";
+import {
+  View,
+  StyleSheet,
+  Text,
+  Image,
+  ScrollView,
+  Pressable,
+} from "react-native";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import InputField from "../components/molecules/InputField";
-import TaskCards from "../components/organisms/TaskCards";
 import KeyboardAvoidView from "../components/atoms/KeyboardAvoidView";
 import SearchIcon from "../assets/images/searchIcon";
+import { tasks } from "../constantData";
+import MainTaskCard from "../components/organisms/mainTaskCard";
 
 const Home = () => {
+  const [activeTab, setActiveTab] = useState("in progress");
+
+  const handleActiveTab = (type) => {
+    if (type === activeTab) return;
+    setActiveTab(type);
+  };
+
+  const tasksToRender = useMemo(() => {
+    return tasks.filter(
+      (task) => task.status?.toLowerCase() === activeTab?.toLowerCase()
+    );
+  }, [activeTab]);
+
   return (
     <View style={styles.wholeDiv}>
       <View style={styles.avatarDetails}>
@@ -22,27 +43,68 @@ const Home = () => {
           style={styles.img}
         />
       </View>
-      <KeyboardAvoidView>
-        <InputField placeholder="Find your task here...." showIcon />
-      </KeyboardAvoidView>
+      <View>
+        <KeyboardAvoidView style={{ backgroundColor: "red" }}>
+          <InputField placeholder="Find your task here...." showIcon />
+        </KeyboardAvoidView>
+      </View>
 
       <Text style={styles.taskLabel}>Your Task</Text>
       <View style={styles.taskProgress}>
-        <View style={styles.taskProgressStyle}>
-          <Text style={styles.text}>In Progress</Text>
-        </View>
-        <View style={styles.taskProgressStyle1}>
-          <Text style={styles.text1}>To Do</Text>
-        </View>
-        <View style={styles.taskProgressStyle1}>
-          <Text style={styles.text1}> Completed</Text>
-        </View>
+        <Pressable
+          onPress={() => handleActiveTab("in progress")}
+          style={[
+            styles.taskProgressStyle1,
+            activeTab === "in progress" && styles.taskProgressStyle,
+          ]}
+        >
+          <Text
+            style={[styles.text1, activeTab === "in progress" && styles.text]}
+          >
+            In Progress
+          </Text>
+        </Pressable>
+        <Pressable
+          onPress={() => handleActiveTab("to do")}
+          style={[
+            styles.taskProgressStyle1,
+            activeTab === "to do" && styles.taskProgressStyle,
+          ]}
+        >
+          <Text style={[styles.text1, activeTab === "to do" && styles.text]}>
+            To Do
+          </Text>
+        </Pressable>
+        <Pressable
+          onPress={() => handleActiveTab("completed")}
+          style={[
+            styles.taskProgressStyle1,
+            activeTab === "completed" && styles.taskProgressStyle,
+          ]}
+        >
+          <Text
+            style={[styles.text1, activeTab === "completed" && styles.text]}
+          >
+            {" "}
+            Completed
+          </Text>
+        </Pressable>
       </View>
-      <ScrollView>
-        <View style={styles.task}>
-          <TaskCards text="High" />
+      <ScrollView
+        contentContainerStyle={{ paddingBottom: 200 }}
+        showsVerticalScrollIndicator={false}
+      >
+        <View>
+          {/* <TaskCards text="High" />
           <TaskCards text="Medium" bg={"#CC00FF"} />
-          <TaskCards text="High" />
+          <TaskCards text="High" /> */}
+          {tasksToRender.map((task, taskIndex) => {
+            return (
+              <Fragment key={taskIndex}>
+                <MainTaskCard {...task} />
+              </Fragment>
+            );
+          })}
         </View>
       </ScrollView>
     </View>
@@ -54,6 +116,7 @@ const styles = StyleSheet.create({
     paddingLeft: wp(5.1),
     paddingRight: wp(5.1),
     backgroundColor: "#fff",
+    flexGrow: 1,
   },
   avatarDetails: {
     display: "flex",
@@ -88,12 +151,8 @@ const styles = StyleSheet.create({
   },
 
   taskProgressStyle: {
-    paddingTop: 9,
-    paddingBottom: 9,
-    paddingLeft: 19,
-    paddingRight: 19,
     backgroundColor: "#0560FD",
-    borderRadius: 10,
+    borderColor: "transparent",
   },
 
   taskProgressStyle1: {
@@ -109,8 +168,6 @@ const styles = StyleSheet.create({
 
   text: {
     color: "#fff",
-    fontSize: 12,
-    fontWeight: "500",
   },
   text1: {
     color: "#9A9A9A",

@@ -5,6 +5,7 @@ import SignIn from "./screens/signIn";
 import SignUp from "./screens/signUp";
 import BottomTabs from "./components/organisms/BottomTabs";
 import Home from "./screens/home";
+import { getAuthUser } from "./utils/auth.helper";
 
 const Stack = createStackNavigator();
 
@@ -13,7 +14,7 @@ const AppRoutes = () => {
   return (
     <Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName="todo screens"
+      // initialRouteName="todo screens"
     >
       <Screen name="signin" component={SignIn} />
       <Screen name="signup" component={SignUp} />
