@@ -11,11 +11,14 @@ import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import InputField from "../components/molecules/InputField";
 import KeyboardAvoidView from "../components/atoms/KeyboardAvoidView";
 import SearchIcon from "../assets/images/searchIcon";
+import { Feather } from "@expo/vector-icons";
 import { tasks } from "../constantData";
 import MainTaskCard from "../components/organisms/mainTaskCard";
+import { useAuthContext } from "../context";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("in progress");
+  const { userInfo, clearAuthData } = useAuthContext();
 
   const handleActiveTab = (type) => {
     if (type === activeTab) return;
@@ -35,13 +38,20 @@ const Home = () => {
           <Image source={require("../../src/assets/images/avater.png")} />
           <View style={styles.subDetails}>
             <Text>Hello</Text>
-            <Text style={styles.avatarName}>Sarthak</Text>
+            <Text style={styles.avatarName}>{userInfo}</Text>
           </View>
         </View>
-        <Image
-          source={require("../../src/assets/images/stroks.png")}
-          style={styles.img}
-        />
+        <Pressable
+          onPress={() => {
+            clearAuthData();
+          }}
+        >
+          <Feather name="log-out" size={24} color="black" />
+          {/* <Image
+            source={require("../../src/assets/images/stroks.png")}
+            style={styles.img}
+          /> */}
+        </Pressable>
       </View>
       <View>
         <KeyboardAvoidView style={{ backgroundColor: "red" }}>

@@ -22,16 +22,19 @@ import Google from "../components/atoms/icons/google";
 import { useNavigation } from "@react-navigation/native";
 import Nav from "../components/molecules/nav";
 import { doLogin, getAuthUser } from "../utils/auth.helper";
+import { useAuthContext } from "../context";
 
 const SignIn = () => {
   const [isChecked, setChecked] = useState(false);
   const [form, setForm] = useState({ email: "", password: "" });
   const navigation = useNavigation();
+  const { setUserInfo } = useAuthContext();
 
   const handleLogin = async () => {
     try {
       await doLogin(form.email);
-      navigation.navigate("todo screens");
+      setUserInfo(form.email);
+      // navigation.navigate("todo screens");
     } catch (error) {}
   };
 

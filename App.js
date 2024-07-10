@@ -7,16 +7,19 @@ import { PaperProvider } from "react-native-paper";
 import { NavigationContainer } from "@react-navigation/native";
 import AppRoutes from "./src/AppRoutes";
 import SignUp from "./src/screens/signUp";
+import AuthProvider from "./src/context";
 
 export default function App() {
   return (
     <NavigationContainer>
       <PaperProvider>
-        <SafeAreaProvider>
-          <SafeAreaView style={{ flexGrow: 1 }}>
-            <AppRoutes />
-          </SafeAreaView>
-        </SafeAreaProvider>
+        <AuthProvider>
+          <SafeAreaProvider>
+            <SafeAreaView style={{ flexGrow: 1 }}>
+              <AppRoutes />
+            </SafeAreaView>
+          </SafeAreaProvider>
+        </AuthProvider>
       </PaperProvider>
     </NavigationContainer>
   );

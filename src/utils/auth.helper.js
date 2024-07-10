@@ -14,3 +14,9 @@ export const getAuthUser = async () => {
     return JSON.parse(userData);
   } catch (error) {}
 };
+
+export const clearAuthUser = async () => {
+  try {
+    await AsyncStorage.removeItem("userInfo");
+  } catch (error) {}
+};
