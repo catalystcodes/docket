@@ -13,10 +13,10 @@ export const tasks = [
   },
   {
     name: "Design of the day challenge",
-    progress: 60,
+    progress: 100,
     createdAt: new Date(),
     finishDate: new Date(),
-    priority: "Medium",
+    priority: "High",
     status: "completed",
     category: "design",
   },
