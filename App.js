@@ -12,6 +12,7 @@ import AuthProvider from "./src/context";
 export default function App() {
   return (
     <NavigationContainer>
+      <StatusBar style="dark" />
       <PaperProvider>
         <AuthProvider>
           <SafeAreaProvider>

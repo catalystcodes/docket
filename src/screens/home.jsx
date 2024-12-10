@@ -147,7 +147,6 @@ const styles = StyleSheet.create({
   avatarName: {
     fontWeight: "600",
     fontSize: 16,
-    backgroundColor: "red",
   },
   taskLabel: {
     fontWeight: "600",
