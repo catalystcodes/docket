@@ -29,7 +29,7 @@ const AppRoutes = () => {
     <Navigator
       screenOptions={{ headerShown: false }}
       onLayoutRootView={onLayoutRootView}
-      // initialRouteName="todo screens"
+      initialRouteName="todo screens"
     >
       {isLoggedIn ? (
         <Screen name="todo screens" component={BottomTabs} />
