@@ -20,3 +20,9 @@ export const clearAuthUser = async () => {
     await AsyncStorage.removeItem("userInfo");
   } catch (error) {}
 };
+
+export const isLoggedIn = async () => {
+  const userData = await getAuthUser();
+  if (userData === null) return false;
+  return true;
+};

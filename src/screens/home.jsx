@@ -47,10 +47,6 @@ const Home = () => {
           }}
         >
           <Feather name="log-out" size={24} color="black" />
-          {/* <Image
-            source={require("../../src/assets/images/stroks.png")}
-            style={styles.img}
-          /> */}
         </Pressable>
       </View>
       <View>
