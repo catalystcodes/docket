@@ -89,16 +89,16 @@ const SignIn = () => {
 
         <Text style={styles.text}>Or with</Text>
 
-        <View style={{ justifyContent: "center" }}>
+        <View>
           <ButtonField textColor={"#fff"}>
-            <Facebook />
+            {/* <Facebook /> */}
             <AppText>Login with Facebook</AppText>
           </ButtonField>
         </View>
 
         <View></View>
         <ButtonField type="outline" textColor={"black"}>
-          <Google />
+          {/* <Google /> */}
           <AppText>Login with Google</AppText>
         </ButtonField>
         <View style={styles.signUpArea}>

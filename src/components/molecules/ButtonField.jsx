@@ -26,10 +26,6 @@ const styles = StyleSheet.create({
   Button: {
     backgroundColor: "#0560FD",
     borderRadius: 5,
-    // width: wp(89.8),
-    // height: hp(5.1),
-    // justifyContent: "center",
-    // alignItems: "center",
   },
   outline: {
     backgroundColor: "#fff",
