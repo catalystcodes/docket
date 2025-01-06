@@ -22,22 +22,43 @@ import Google from "../components/atoms/icons/google";
 import { useNavigation } from "@react-navigation/native";
 import Nav from "../components/molecules/nav";
 import { doLogin, getAuthUser } from "../utils/auth.helper";
+
 import { useAuthContext } from "../context";
+import { useDispatch } from "react-redux";
+// import { doAPILogin } from "../service/auth.services";
+import { login } from "../store";
+import { doAPILogin } from "../service";
 
 const SignIn = () => {
   const [isChecked, setChecked] = useState(false);
   const [form, setForm] = useState({ email: "", password: "" });
+  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
+
   const navigation = useNavigation();
   const { setUserInfo } = useAuthContext();
 
-  const handleLogin = async () => {
-    try {
-      await doLogin(form.email);
-      setUserInfo(form.email);
-      // navigation.navigate("todo screens");
-    } catch (error) {}
-  };
+  const disableButton =
+    form.email.trim() === "" || form.password.trim() === "" || isLoading;
 
+  const handleLogin = async () => {
+    if (disableButton) return;
+    setIsLoading(true);
+    try {
+      // const data = await doLogin(form);
+      const data = await doAPILogin(form);
+      // if (data) {
+      //   setUserInfo(form.username);
+      // }
+      console.log({ data });
+      if (data) {
+        dispatch(login(data));
+      }
+    } catch (error) {
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
     <View
       style={{
@@ -61,7 +82,7 @@ const SignIn = () => {
           <InputField
             label="Password"
             placeholder="Password"
-            secureTextEntry
+            // secureTextEntry
             type="password"
             value={form.password}
             setValue={(text) =>
@@ -83,7 +104,12 @@ const SignIn = () => {
           <Text style={{ color: "#0560FD" }}>Forget password?</Text>
         </View>
 
-        <ButtonField onPress={handleLogin} textColor={"#fff"}>
+        <ButtonField
+          onPress={handleLogin}
+          textColor={"#fff"}
+          isLoading={isLoading}
+          disabled={disableButton}
+        >
           <AppText>Sign In Now</AppText>
         </ButtonField>
 
@@ -103,7 +129,7 @@ const SignIn = () => {
         </ButtonField>
         <View style={styles.signUpArea}>
           <Text>I don’t Have an account? </Text>
-          <Pressable onPress={() => navigation.navigate("signup")}>
+          <Pressable>
             <Text style={{ color: "#0560FD" }}>Signup</Text>
           </Pressable>
         </View>
