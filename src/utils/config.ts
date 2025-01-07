@@ -1,3 +1,3 @@
-import { BASE_URL } from "@env";
+// import { BASE_URL } from "@env";
 
-const baseUrl = BASE_URL;
+// export const baseUrl = BASE_URL;
